@@ -1,0 +1,50 @@
+package tuna;
+
+import java.util.Random;
+
+public class Algorithm01 {
+	public static void main(String arg[])	
+	{
+		Random randomNumberForArray  = new Random();
+		int[] Array = new int[5];
+		int temporaryCup = 0;
+		int numbercount = 0, counter = 0;
+		int before;
+		System.out.print(" \n");
+		for (int i=0; i < Array.length; ++i) {
+			Array[i]=randomNumberForArray.nextInt(10);
+			System.out.println(Array[i]);
+		    for (int j=1; j < (Array.length - i); ++j) {
+		        if (Array[j-1] > Array[j]) {
+		        	temporaryCup = Array[j-1];
+		            Array[j-1] = Array[j];
+		            Array[j] = temporaryCup;
+		        }
+		    }
+		}
+		
+		before = -1;
+		for (int i=0; i < Array.length; ++i) {
+		    if (Array[i] == before) {
+		        ++numbercount;
+		        if (numbercount == 1) {
+		            ++counter;
+		            if (counter == 1) {
+		                System.out.print(Array[i]);
+		            }
+		            else {
+		                System.out.print("REPEATNUMBERS " + Array[i]);
+		            }
+		        }
+		    }
+		    else {
+		    	before = Array[i];
+		    	numbercount = 0;
+		    }
+		}
+
+		System.out.println("HOW MANY TIMES THEY REPEAT: " + counter);
+		
+				}
+				
+}
